@@ -1,6 +1,7 @@
 import 'package:crypto_app/core/client/config/flavor_config.dart';
 import 'package:crypto_app/core/client/remote/dio_client.dart';
 import 'package:crypto_app/core/client/remote/i_remote_client.dart';
+import 'package:crypto_app/core/di/mappers.dart';
 import 'package:crypto_app/home/data/repositories/home_repo_impl.dart';
 import 'package:crypto_app/home/data/service/home_service.dart';
 import 'package:crypto_app/home/domain/repositories/i_home_repo.dart';
@@ -21,5 +22,11 @@ void setup() {
     ..registerSingleton<IHomeService>(
       HomeServiceImpl(getIt.get<IRemoteClient>()),
     )
-    ..registerSingleton<IHomeRepo>(HomeRepoImpl(getIt.get<IHomeService>()));
+    ..registerSingleton(const Mappr())
+    ..registerSingleton<IHomeRepo>(
+      HomeRepoImpl(
+        getIt.get<IHomeService>(),
+        getIt.get<Mappr>(),
+      ),
+    );
 }

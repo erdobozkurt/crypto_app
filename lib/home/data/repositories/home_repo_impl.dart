@@ -1,4 +1,5 @@
 import 'package:crypto_app/core/client/remote/i_remote_client.dart';
+import 'package:crypto_app/core/di/mappers.dart';
 import 'package:crypto_app/home/data/models/response/listings_response_model.dart';
 import 'package:crypto_app/home/data/service/home_service.dart';
 import 'package:crypto_app/home/domain/entities/coin.dart';
@@ -7,7 +8,9 @@ import 'package:fpdart/fpdart.dart';
 
 class HomeRepoImpl implements IHomeRepo {
   final IHomeService _homeService;
-  const HomeRepoImpl(this._homeService);
+  final Mappr _mappr;
+
+  const HomeRepoImpl(this._homeService, this._mappr);
 
   @override
   AsyncRes<List<Coin>> fetchListings({required int page}) async {
@@ -15,33 +18,11 @@ class HomeRepoImpl implements IHomeRepo {
       final response = await _homeService.fetchListings(page: page);
       final listingsResponse = ListingsResponseModel.fromJson(response.data!);
 
-      final List<Coin> coinsList = [];
-
-      if (listingsResponse.data != null) {
-        for (final datum in listingsResponse.data!) {
-          final name = datum.name;
-          final symbol = datum.symbol;
-          final price = datum.quote?.usd?.price;
-          final change = datum.quote?.usd?.percentChange24H;
-          final id = datum.id?.toString();
-
-          if (name != null &&
-              symbol != null &&
-              price != null &&
-              change != null &&
-              id != null) {
-            coinsList.add(
-              Coin(
-                id: id,
-                name: name,
-                symbol: symbol,
-                priceUsd: price,
-                changePercent24H: change,
-              ),
-            );
-          }
-        }
+      if (listingsResponse.data == null || listingsResponse.data!.isEmpty) {
+        return right([]);
       }
+
+      final coinsList = _mappr.convertList<Datum, Coin>(listingsResponse.data!);
 
       return right(coinsList);
     } catch (e) {

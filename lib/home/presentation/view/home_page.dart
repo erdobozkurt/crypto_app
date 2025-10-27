@@ -1,8 +1,13 @@
+import 'package:crypto_app/home/domain/entities/coin.dart';
 import 'package:crypto_app/home/presentation/cubit/home_cubit.dart';
-import 'package:crypto_app/home/presentation/view/widgets/widgets.dart';
 import 'package:crypto_app/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+part 'widgets/crypto_list.dart';
+part 'widgets/crypto_list_item.dart';
+part 'widgets/error_view.dart';
+part 'widgets/search_field.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -55,7 +60,7 @@ class _HomePageState extends State<HomePage> {
             if (state.status == HomeStatus.loading) {
               return const CircularProgressIndicator();
             } else if (state.status == HomeStatus.error) {
-              return ErrorView(
+              return _(
                 onReload: () => cubit.fetchListings(1),
               );
             }
@@ -66,12 +71,12 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SearchField(
+                    _SearchField(
                       controller: searchController,
                       focusNode: focusNode,
                     ),
                     Expanded(
-                      child: CryptoList(coins: state.response),
+                      child: _CryptoList(coins: state.response),
                     ),
                   ],
                 ),

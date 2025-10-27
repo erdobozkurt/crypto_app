@@ -1,10 +1,8 @@
-import 'package:crypto_app/l10n/l10n.dart';
-import 'package:flutter/material.dart';
+part of '../home_page.dart';
 
-class ErrorView extends StatelessWidget {
-  const ErrorView({
+class _ extends StatelessWidget {
+  const _({
     required this.onReload,
-    super.key,
   });
 
   final VoidCallback onReload;

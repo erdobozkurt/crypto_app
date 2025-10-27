@@ -1,10 +1,8 @@
-import 'package:crypto_app/home/domain/entities/coin.dart';
-import 'package:flutter/material.dart';
+part of '../home_page.dart';
 
-class CryptoListItem extends StatelessWidget {
-  const CryptoListItem({
+class _CryptoListItem extends StatelessWidget {
+  const _CryptoListItem({
     required this.coin,
-    super.key,
   });
 
   final Coin coin;

@@ -1,11 +1,8 @@
-import 'package:crypto_app/home/domain/entities/coin.dart';
-import 'package:crypto_app/home/presentation/view/widgets/crypto_list_item.dart';
-import 'package:flutter/material.dart';
+part of '../home_page.dart';
 
-class CryptoList extends StatelessWidget {
-  const CryptoList({
+class _CryptoList extends StatelessWidget {
+  const _CryptoList({
     required this.coins,
-    super.key,
   });
 
   final List<Coin> coins;
@@ -17,7 +14,7 @@ class CryptoList extends StatelessWidget {
       itemCount: coins.length,
       itemBuilder: (context, index) {
         final coin = coins[index];
-        return CryptoListItem(coin: coin);
+        return _CryptoListItem(coin: coin);
       },
     );
   }

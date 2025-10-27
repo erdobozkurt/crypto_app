@@ -1,11 +1,9 @@
-import 'package:crypto_app/l10n/l10n.dart';
-import 'package:flutter/material.dart';
+part of '../home_page.dart';
 
-class SearchField extends StatelessWidget {
-  const SearchField({
+class _SearchField extends StatelessWidget {
+  const _SearchField({
     required this.controller,
     required this.focusNode,
-    super.key,
   });
 
   final TextEditingController controller;

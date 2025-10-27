@@ -1,0 +1,23 @@
+{
+    "@@locale": "en",
+    "homeAppBarTitle": "Crypto Tracker",
+    "@homeAppBarTitle": {
+        "description": "Text shown in the AppBar of the Home Page"
+    },
+    "errorFetchingListings": "Error fetching listings",
+    "@errorFetchingListings": {
+        "description": "Error message when crypto listings fail to load"
+    },
+    "reload": "Reload",
+    "@reload": {
+        "description": "Button text to reload data"
+    },
+    "searchHint": "BTC or Bitcoin",
+    "@searchHint": {
+        "description": "Hint text for search field"
+    },
+    "searchLabel": "Search any coin",
+    "@searchLabel": {
+        "description": "Label text for search field"
+    }
+}

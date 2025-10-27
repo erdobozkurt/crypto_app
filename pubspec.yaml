@@ -1,0 +1,36 @@
+name: crypto_app
+description: A Very Good Project created by Very Good CLI.
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.9.0
+  flutter: ^3.35.0
+
+dependencies:
+  bloc: ^9.0.1
+  dio: ^5.9.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_localizations:
+    sdk: flutter
+  fpdart: ^1.1.1
+  freezed_annotation: ^3.1.0
+  get_it: ^8.2.0
+  intl: ^0.20.2
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  bloc_test: ^10.0.0
+  build_runner: ^2.7.1
+  flutter_test:
+    sdk: flutter
+  freezed: ^3.2.3
+  json_serializable: ^6.11.1
+  mocktail: ^1.0.4
+  very_good_analysis: ^10.0.0
+
+flutter:
+  generate: true
+  uses-material-design: true

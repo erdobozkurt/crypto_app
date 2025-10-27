@@ -1,0 +1,23 @@
+{
+    "@@locale": "tr",
+    "homeAppBarTitle": "Kripto Takip",
+    "@homeAppBarTitle": {
+        "description": "Ana Sayfa AppBar başlığı"
+    },
+    "errorFetchingListings": "Listeler yüklenirken hata oluştu",
+    "@errorFetchingListings": {
+        "description": "Kripto listesi yüklenemediğinde gösterilen hata mesajı"
+    },
+    "reload": "Yeniden Yükle",
+    "@reload": {
+        "description": "Veriyi yeniden yüklemek için buton metni"
+    },
+    "searchHint": "BTC veya Bitcoin",
+    "@searchHint": {
+        "description": "Arama alanı için ipucu metni"
+    },
+    "searchLabel": "Herhangi bir coin ara",
+    "@searchLabel": {
+        "description": "Arama alanı için etiket metni"
+    }
+}

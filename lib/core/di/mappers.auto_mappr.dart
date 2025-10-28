@@ -8,22 +8,22 @@
 // ignore_for_file: type=lint, unnecessary_cast, unused_local_variable
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_mappr_annotation/auto_mappr_annotation.dart' as _i1;
+import 'package:auto_mappr_annotation/auto_mappr_annotation.dart' as _i2;
 
-import '../../home/data/models/response/listings_response_model.dart' as _i2;
-import '../../home/domain/entities/coin.dart' as _i3;
+import '../../home/data/models/response/listings_response_model.dart' as _i3;
+import '../../home/domain/entities/coin.dart' as _i1;
 import 'mappers.dart' as _i4;
 
 /// {@template package:crypto_app/core/di/mappers.dart}
 /// Available mappings:
-/// - `Datum` → `Coin`.
+/// - `Datum` → `Coin` -- With default value.
 /// {@endtemplate}
-class $Mappr implements _i1.AutoMapprInterface {
+class $Mappr implements _i2.AutoMapprInterface {
   const $Mappr();
 
   Type _typeOf<T>() => T;
 
-  List<_i1.AutoMapprInterface> get _delegates => const [];
+  List<_i2.AutoMapprInterface> get _delegates => const [];
 
   /// {@macro AutoMapprInterface:canConvert}
   /// {@macro package:crypto_app/core/di/mappers.dart}
@@ -31,10 +31,10 @@ class $Mappr implements _i1.AutoMapprInterface {
   bool canConvert<SOURCE, TARGET>({bool recursive = true}) {
     final sourceTypeOf = _typeOf<SOURCE>();
     final targetTypeOf = _typeOf<TARGET>();
-    if ((sourceTypeOf == _typeOf<_i2.Datum>() ||
-            sourceTypeOf == _typeOf<_i2.Datum?>()) &&
-        (targetTypeOf == _typeOf<_i3.Coin>() ||
-            targetTypeOf == _typeOf<_i3.Coin?>())) {
+    if ((sourceTypeOf == _typeOf<_i3.Datum>() ||
+            sourceTypeOf == _typeOf<_i3.Datum?>()) &&
+        (targetTypeOf == _typeOf<_i1.Coin>() ||
+            targetTypeOf == _typeOf<_i1.Coin?>())) {
       return true;
     }
     if (recursive) {
@@ -214,14 +214,21 @@ class $Mappr implements _i1.AutoMapprInterface {
   }) {
     final sourceTypeOf = _typeOf<SOURCE>();
     final targetTypeOf = _typeOf<TARGET>();
-    if ((sourceTypeOf == _typeOf<_i2.Datum>() ||
-            sourceTypeOf == _typeOf<_i2.Datum?>()) &&
-        (targetTypeOf == _typeOf<_i3.Coin>() ||
-            targetTypeOf == _typeOf<_i3.Coin?>())) {
+    if ((sourceTypeOf == _typeOf<_i3.Datum>() ||
+            sourceTypeOf == _typeOf<_i3.Datum?>()) &&
+        (targetTypeOf == _typeOf<_i1.Coin>() ||
+            targetTypeOf == _typeOf<_i1.Coin?>())) {
       if (canReturnNull && model == null) {
-        return null;
+        return (const _i1.Coin(
+              id: r'id',
+              name: r'name',
+              symbol: r'symbol',
+              priceUsd: 12.0,
+              changePercent24H: 12.0,
+            )
+            as TARGET);
       }
-      return (_map__i2$Datum_To__i3$Coin((model as _i2.Datum?)) as TARGET);
+      return (_map__i3$Datum_To__i1$Coin((model as _i3.Datum?)) as TARGET);
     }
     throw Exception('No ${model.runtimeType} -> $targetTypeOf mapping.');
   }
@@ -249,15 +256,18 @@ class $Mappr implements _i1.AutoMapprInterface {
     return false;
   }
 
-  _i3.Coin _map__i2$Datum_To__i3$Coin(_i2.Datum? input) {
+  _i1.Coin _map__i3$Datum_To__i1$Coin(_i3.Datum? input) {
     final model = input;
     if (model == null) {
-      throw Exception(
-        r'Mapping Datum → Coin failed because Datum was null, and no default value was provided. '
-        r'Consider setting the whenSourceIsNull parameter on the MapType<Datum, Coin> to handle null values during mapping.',
+      return const _i1.Coin(
+        id: r'id',
+        name: r'name',
+        symbol: r'symbol',
+        priceUsd: 12.0,
+        changePercent24H: 12.0,
       );
     }
-    return _i3.Coin(
+    return _i1.Coin(
       id: _i4.MapprConversions.convertId(model),
       name: _i4.MapprConversions.convertName(model),
       symbol: _i4.MapprConversions.convertSymbol(model),

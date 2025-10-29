@@ -21,7 +21,7 @@ class _CryptoListItem extends StatelessWidget {
       ),
       title: Text(coin.name),
       trailing: Text(
-        coin.changePercent24H.toStringAsFixed(3),
+        '${coin.changePercent24H.toStringAsFixed(3)}%',
         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
           color: coin.changePercent24H >= 0
               ? Colors.green.shade900
